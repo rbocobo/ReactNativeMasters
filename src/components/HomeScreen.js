@@ -17,6 +17,7 @@ export default class homeScreen extends Component {
     return (<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <TextInput placeholder='Enter Your Name' value={this.state.name} style={{width:'100%'}} onChangeText={this.nameChangeHandler}/>
         <Button title='Go To Details' onPress={()=> this.props.navigation.navigate('Detail', { name: this.state.name })} disabled={btnDisabled}></Button>
+        <Button title='New Registration' onPress={()=> this.props.navigation.navigate('Registration')}></Button>
     </View>);
     
     }
