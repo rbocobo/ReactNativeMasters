@@ -38,7 +38,7 @@ class RegistrationScreen extends Component {
     }
 
     onRegister = () => {
-        this.props.navigation.navigate('Confirm');
+        this.props.navigation.navigate('Confirm', { ...this.state });
     }
 
     render() {

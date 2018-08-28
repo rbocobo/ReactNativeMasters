@@ -13,6 +13,7 @@ import HomeScreen from './src/components/HomeScreen';
 import DetailScreen from './src/components/DetailScreen';
 import RegistrationScreen from './src/components/RegistrationScreen';
 import RegistrationMain from './src/components/RegistrationMain';
+import RegistrationConfirmationScreen from './src/components/RegistrationConfirmationScreen';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -32,7 +33,19 @@ const RootStack = createStackNavigator({
     screen: DetailScreen
   },
   Registration: {
-    screen: RegistrationMain,
+    screen: createStackNavigator({
+      Main: {
+        screen: RegistrationScreen
+      },
+      Confirm: {
+          screen: RegistrationConfirmationScreen
+      }
+    },
+    {
+        mode: 'modal',
+        headerMode: 'none'
+    }
+  ),
     navigationOptions: () => ({
       title: "Registration"
     })
